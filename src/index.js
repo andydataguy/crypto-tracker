@@ -1,17 +1,24 @@
+// learned that I need to use the command "npm install" in order to initiate things
+// Also used the following command to download dependencies from the terminal
+// npm install antd @ant-design/icons react-redux @reduxjs/toolkit axios chart.js html-react-parser millify moment react-chartjs-2  
+// needed to run "npm install -S react-router-dom"
+// there is something wrong with the commened out code in the LineChart.jsx file
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import store from './app/store'
+import 'antd/dist/antd.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    <Router>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </Router>,
+    document.getElementById('root'));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export default App;
